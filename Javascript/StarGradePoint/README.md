@@ -23,6 +23,6 @@
 |data-class-none|far fa-star|String(ClassName)|class name of empty star|
 |data-class-half|fas fa-star-half-alt|String(ClassName)|class name of half-filled star|
 |data-class-full|fas fa-star|String(ClassName)|class name of full-filled star|
-|data-color|#ec600a(orange)|String(Hex color)|color of star|
-|data-size|20px|String(px)|size of star|
+|data-color|#ec600a(orange)|String(Hex color)|star color|
+|data-size|20px|String(px)|star size|
 |data-letter-space|-3|String(px)|letter space|star spacing|

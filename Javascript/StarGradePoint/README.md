@@ -11,7 +11,8 @@
 </script>
 <span class=".class_name" data-score="3.4"></span>
 ```
-### run
+### Run
+#### score = 3.4, maxScore = 5
 ![score_34](./images/score_34.PNG)
 
 ## Attributes

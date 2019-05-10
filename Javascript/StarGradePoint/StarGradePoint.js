@@ -12,7 +12,7 @@
  * data-class-full : class_name
  * data-color : hexColor
  * data-size : npx
- * data-letter-space : npxasd
+ * data-letter-space : npx
  */
 var StarGradePoint = function(data)
 {

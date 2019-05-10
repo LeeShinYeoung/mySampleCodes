@@ -12,7 +12,7 @@
 <span class=".class_name" data-score="3.4"></span>
 ```
 ### run
-![ex_star](./images/star_34.PNG)
+![score_34](./images/score_34.PNG)
 
 ## Attributes
 |Name|Default value|Type|Explain|

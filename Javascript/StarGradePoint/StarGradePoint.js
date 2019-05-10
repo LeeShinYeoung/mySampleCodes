@@ -68,7 +68,6 @@ StarGradePoint.prototype.fillStar = function()
 }
 StarGradePoint.prototype.style = function()
 {
-    // this.wrap.style.fontSize = this.size;
     this.wrap.style.color = this.color;
     for (var i=0; i<this.starWrap.childElementCount; i++) {
         this.starWrap.children[i].style.letterSpacing = this.letter_space;

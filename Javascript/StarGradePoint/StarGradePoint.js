@@ -56,13 +56,13 @@ StarGradePoint.prototype.makeStar = function()
 StarGradePoint.prototype.fillStar = function()
 {
     var grade = this.score;
-    var range = 0.25;  // ( 별 채우는 단위가 0, 0.5, 1 일 경우 0.25 )
+    var range = 0.25;  // 별을 채우는 단위가 0, 0.5, 1 일 경우 -> 0.25
     var star_cnt = 1;
-    for (var i=0; i<this.maxScore; i++) { //별 갯수만큼 반복 // 5
+    for (var i=0; i<this.maxScore; i++) {
         var star = this.starWrap.children[i];
-        star.className = this.fill_none; // 빈별로 초기화
-        if (grade > star_cnt - (range * 3)) star.className = this.fill_half; // n.25보다 크면 일단 반쪽 채움 ( range가 0.25일 경우 )
-        if (grade > star_cnt - range) star.className = this.fill_full; // n.75보다 크면 모두 채움
+        star.className = this.fill_none;
+        if (grade > star_cnt - (range * 3)) star.className = this.fill_half;
+        if (grade > star_cnt - range) star.className = this.fill_full;
         star_cnt++;
     }
 }

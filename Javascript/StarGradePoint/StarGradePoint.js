@@ -4,9 +4,9 @@
  * var init = new StarGradePoint({selectWrap : '[.class_name]'});
  *
  * [HTML]
- * <span class="[.class_name]" data-score="[0 ~ 5]"></span>
+ * <span class="[.class_name]" data-score="[0 ~ maxScore]"></span>
  * [HTML ATTRIBUTES]
- * data-score : 0~5 *
+ * data-score : 0~maxScore *
  * data-maxScore : 1 ~
  * data-class-none : class_name
  * data-class-half : class_name

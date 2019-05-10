@@ -7,6 +7,7 @@
  * <span class="[.class_name]" data-score="[0 ~ 5]" data-size="[n]px" data-letter-space="[n]px"></span>
  * HTML ATTRIBUTES
  * data-score : 0~5 *
+ * data-maxScore : 1 ~
  * data-class-none : class_name
  * data-class-half : class_name
  * data-class-full : class_name

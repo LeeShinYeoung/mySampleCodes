@@ -1,7 +1,7 @@
 import xlrd
 import xlwt
 import math
-from Crawling.ControlBrowser import ControlBrowser
+from Crawling.ControlWebsite import ControlWebsite
 from Database.sbridge import DB_sbridge
 from Database.localhost import DB_local
 from pathlib import Path
@@ -17,7 +17,7 @@ from xlutils.copy import copy
 # 3. MergeProduct -> insertDataBase
 # 합쳐진 엑셀파일안 내용을 로컬 데이터베이스에 입력한다
 
-class DownloadProducts(ControlBrowser):
+class DownloadProducts(ControlWebsite):
     limit = 1000
     def getData(self, page):
         page = page * self.limit

@@ -1,11 +1,11 @@
-/* 190122 이신영  판매자 평점 별점으로 변경*/
+/* 190122 이신영 판매자 평점 별점으로 변경 */
 /**
- * JS
+ * [JS]
  * var init = new StarGradePoint({selectWrap : '[.class_name]'});
  *
- * HTML
- * <span class="[.class_name]" data-score="[0 ~ 5]" data-size="[n]px" data-letter-space="[n]px"></span>
- * HTML ATTRIBUTES
+ * [HTML]
+ * <span class="[.class_name]" data-score="[0 ~ 5]"></span>
+ * [HTML ATTRIBUTES]
  * data-score : 0~5 *
  * data-maxScore : 1 ~
  * data-class-none : class_name
@@ -14,7 +14,7 @@
  * data-color : hexColor
  * data-size : npx
  * data-letter-space : npx
- */
+**/
 var StarGradePoint = function(data)
 {
     this.allElement = document.querySelectorAll(data.selectWrap);

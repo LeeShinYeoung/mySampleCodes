@@ -40,6 +40,7 @@ StarGradePoint.prototype.init = function(index)
     this.color = (color) ? color : '#ec600a';
     this.size = (size) ? size : '20px';
     this.letter_space = (letter_space) ? letter_space : '-3';
+    
     this.makeStar();
     this.fillStar();
     this.style();

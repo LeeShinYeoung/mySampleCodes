@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.alert import Alert
 import time, datetime
 
-class ControlBrowser:
+class ControlWebsite:
     def __init__(self):
         self.driver = webdriver.Chrome('C://python/webdriver/chromedriver.exe')
         self.driver.implicitly_wait(5)
@@ -35,5 +35,4 @@ class ControlBrowser:
             elif type == 'switch_window':
                 window = self.driver.get_window_rect()
                 self.driver.switch_to().window(window)
-            self.driver.implicitly_wait(5)
 

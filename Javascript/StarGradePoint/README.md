@@ -1,7 +1,7 @@
 # StarGradePoint.js
 
 
-## Use to Basic (Require font-awesome libray)
+## Use to Basic (Require font-awesome library)
 ```html
 <!--If you use a basic star, you need it.-->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">

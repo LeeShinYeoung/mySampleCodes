@@ -9,7 +9,7 @@
 <script>
 window.onload = function() {
     new AddComma({
-        tag_list : ['input[name=input_01]', .'.max_price']
+        tag_list : ['input[name=price]', '.max_price']
     });
 }
 </script>

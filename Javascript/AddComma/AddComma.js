@@ -7,7 +7,6 @@ window.onload = function() {
             , 'input[name=input_04]'
             , 'input[name=input_05]'
             , 'textarea[name=textarea_01]'
-            , 'input[name=test]'
             , '.p']
     });
 }

@@ -1,37 +1,26 @@
 import xlrd
 import xlwt
 import math
-from Crawling.ControlWebsite import ControlWebsite
+from Crawling.ControlBrowser import ControlBrowser
 from Database.sbridge import DB_sbridge
 from Database.localhost import DB_local
 from pathlib import Path
 from xlutils.copy import copy
 
-# 1. DownloadProducts -> process
-# 11번가 판매자 페이지에 직접 접속하여 판매중인 모든 상품을 엑셀로 다운받는다 (관리코드로 검색)
+# 1. process_DownloadProducts()
+# 11번가 판매자 페이지에 직접 접속하여 판매중인 모든 상품을 엑셀로 다운받는다
 #
-# 2. MergeProduct -> process
-# 다운로드 받은 파일을 한 디렉토리에 넣어두어 실행시키면
-# 그 디렉토리안 엑셀파일을 모두 합친다
+# 2. process_MergeProduct()
+# 다운로드 받은 엑셀파일을 어느 한 디렉토리에 넣어두어 실행시키면
+# 엑셀파일을 모두 합친다
 #
-# 3. MergeProduct -> insertDataBase
-# 합쳐진 엑셀파일안 내용을 로컬 데이터베이스에 입력한다
+# 3. insertDataBase()
+# 합쳐진 엑셀파일 데이터를 로컬 데이터베이스에 입력한다
 
-class DownloadProducts(ControlWebsite):
+class GetProductsByCrawling():
     limit = 1000
-    def getData(self, page):
-        page = page * self.limit
-        sql = "SELECT number FROM 상품테이블 WHERE product_stats = 0 ORDER BY number ASC LIMIT "+str(page)+", "+str(self.limit)
-        data = DB_sbridge.queryToArray(sql)
-        print('삽입데이터 : '+sql)
-        return data
 
-    def getCount(self):
-        sql = "SELECT count(*) AS count FROM 상품테이블 WHERE product_stats = 0"
-        count = DB_sbridge.queryToObject(sql)
-        return count['count']
-
-    def process(self):
+    def process_DownloadProducts(self):
         self.loginAndGoPage()
         count = self.getCount()
         count = math.ceil(count / self.limit) # 총갯수/횟수제한 => 33454 / 1000 = 34
@@ -44,15 +33,28 @@ class DownloadProducts(ControlWebsite):
             print(str(i), '번째 다운로드완료', confirm_count)
         print('모든상품 다운로드완료')
 
+    def getData(self, page):
+        page = page * self.limit
+        sql = "SELECT number FROM auction_product WHERE product_stats = 0 ORDER BY number ASC LIMIT "+str(page)+", "+str(self.limit)
+        data = DB_sbridge.queryToArray(sql)
+        print('삽입데이터 : '+sql)
+        return data
+
+    def getCount(self):
+        sql = "SELECT count(*) AS count FROM auction_product WHERE product_stats = 0"
+        count = DB_sbridge.queryToObject(sql)
+        return count['count']
+
     def loginAndGoPage(self):
         flow_list = []
         flow_list.append({'goto_page':'https://login.soffice.11st.co.kr/login/Login.page?returnURL=http%3A%2F%2Fsoffice.11st.co.kr%2FIndex.tmall'}) # 11번가 로그인
-        flow_list.append({'send_key':{'판매자아이디':'//*[@id="loginName"]'}}) # 아이디 입력
-        flow_list.append({'send_key':{'판매자비밀번호`':'//*[@id="passWord"]'}}) # 비밀번호 입력
+        flow_list.append({'send_key':{'pricegolf':'//*[@id="loginName"]'}}) # 아이디 입력
+        flow_list.append({'send_key':{'miki10599`':'//*[@id="passWord"]'}}) # 비밀번호 입력
         flow_list.append({'click':'//*[@id="layBody"]/div/div/form/div[2]/div/div/fieldset/div/div/input'}) # 로그인버튼 클릭
         flow_list.append({'goto_page':'http://soffice.11st.co.kr/product/SellProductAction.tmall?method=getSellProductList'}) # 상품조회 페이지
-        for i, row in enumerate(flow_list):
-            self.startFlow(row)
+        self.selenium = ControlBrowser()
+        for row in flow_list:
+            self.selenium.startFlow(row)
 
     def controlingPage(self, product_list):
         flow_list = []
@@ -61,17 +63,15 @@ class DownloadProducts(ControlWebsite):
         flow_list.append({'click':'//*[@id="ext-gen1019"]/div[2]/div[1]/div[3]/div[2]/a[3]'})
         flow_list.append({'clear':'//*[@id="prdNo"]'})
         flow_list.append({'sleep':5})
-        for i, row in enumerate(flow_list):
-            self.startFlow(row)
+        for row in flow_list:
+            self.selenium.startFlow(row)
 
+    def process_MergeProduct(self, param):
+        self.dir_path = param['dir_path']
+        self.save_path = param['save_path']
+        self.file_name = 'list'
+        self.format = '.xls'
 
-class MergeProduct():
-    dir_path = 'C:/Users/hbmun/Desktop/st11_product/'
-    file_name = 'list'
-    format = '.xls'
-    save_path = 'C:/Users/hbmun/Desktop/data.xls'
-
-    def process(self):
         list = self.getFilePaths()
         for path in list:
             data = self.readXls(path)
@@ -83,7 +83,7 @@ class MergeProduct():
         paths = []
         while True:
             f = self.file_name
-            f = f+' ('+str(i)+')' if i != 0 else f
+            f = f + ' (' + str(i) + ')' if i != 0 else f
             path = self.dir_path + f + self.format
             check = Path(path)
             if check.is_file() == False:
@@ -94,8 +94,8 @@ class MergeProduct():
 
     def readXls(self, path):
         wb = xlrd.open_workbook(path)
-        ws = wb.sheet_by_index(0)  # 시트1 고정
-        count = ws.nrows  # 행갯수
+        ws = wb.sheet_by_index(0) 
+        count = ws.nrows
 
         data = []
         for i in range(count):
@@ -112,7 +112,7 @@ class MergeProduct():
 
     def saveXls(self, data):
         check = Path(self.save_path)
-        if check.is_file() == False:  # 파일이 존재하지 않으면 생성후 재귀
+        if check.is_file() == False:
             wb = xlwt.Workbook(encoding='utf-8')
             wb.add_sheet('sheet1')
             wb.save(self.save_path)
@@ -147,15 +147,20 @@ class MergeProduct():
             print('insert ' + str(i))
         pass
 
-
 if __name__ == '__main__':
+    #instance = GetProductsByCrawling()
+
     #(1)
-    #inst = DownloadProducts()
-    #inst.process()
+    #instance.process_DownloadProducts()
 
     #(2)
-    #inst = MergeProduct()
-    #inst.process()
-
+    # param = {
+    #     'dir_path': 'C:/Users/hbmun/Desktop/st11_product/'
+    #     , 'save_path': 'C:/Users/hbmun/Desktop/st11_product/list_all.xls'
+    #     , 'file_name': 'list'
+    # }
+    # list.xls, list (1).xls, list (2).xls, ...
+    #instance.process_MergeProduct(param)
+    
     #(3)
-    #MergeProduct.insertDataBase()
+    #instance.insertDataBase()

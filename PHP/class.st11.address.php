@@ -1,38 +1,38 @@
 <?
 include_once("{$_SERVER['DOCUMENT_ROOT']}/coop/11st/class.st11.php");
 /**
-    등록된 주소지조회
-    static getRegisterdAddress($type) 
-    
-    Request용 주소데이터 추출
-    static makeRequestAddress($data)
-    
-    도로명, 지번주소 검색
-    static searchAddress($serach_kwd)
-    
-    도로명주소 검색
-    static searchAddressByRoadName($road_addr)
-    
-    지번주소 검색
-    static searchAddressByJibun($jibun_addr)
-    
-    등록/수정 XML생성
-    static makeAddressXml($user_data, $seq = null)
-    
-    동기화
-    static syncSellerAddressManual($user_data,$address_type)
-    
-    동기화 후처리 (로그, 업데이트)
-    static updateCoopSellerAddress($data,$mode)
-    
-    크론탭 전용
-    public crontab_needSync()
- */
+ * 등록된 주소지조회
+ * static getRegisterdAddress($type)
+ *
+ * Request용 주소데이터 추출
+ * static makeRequestAddress($data)
+ *
+ * 도로명, 지번주소 검색
+ * static searchAddress($serach_kwd)
+ *
+ * 도로명주소 검색
+ * static searchAddressByRoadName($road_addr)
+ *
+ * 지번주소 검색
+ * static searchAddressByJibun($jibun_addr)
+ *
+ * 등록/수정 XML생성
+ * static makeAddressXml($user_data, $seq = null)
+ *
+ * 동기화
+ * static syncSellerAddressManual($user_data,$address_type)
+ *
+ * 동기화 후처리 (로그, 업데이트)
+ * static updateCoopSellerAddress($data,$mode)
+ *
+ * 크론탭 전용
+ * public crontab_needSync()
+**/
 class St11Address extends st11
 {
     /**
-     등록된 주소지 조회
-     **/
+    * 등록된 주소지 조회
+    **/
     static function getRegisterdAddress($type)
     {
         $url = ($type == 'out_address') ? 'http://api.11st.co.kr/rest/areaservice/outboundarea' : 'http://api.11st.co.kr/rest/areaservice/inboundarea';
@@ -44,7 +44,7 @@ class St11Address extends st11
     }
     
     /**
-    Request용 주소데이터 추출
+    * Request용 주소데이터 추출
     **/
     static function makeRequestAddress($data)
     {

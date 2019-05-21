@@ -1,16 +1,16 @@
 <?php
 /**
-API Requst
-request($URL,$METHOD,$XML='')
-
-배열을 XML형식으로 변환
-arrayToXml($array)
-
-XML형식을 배열로 변환
-xmlToArray($xml_string)
-
-XML->배열로 변환했을때 비어있는 Key null처리
-recursiveNullArrayToNull($array)
+ * API Requst
+ * request($URL,$METHOD,$XML='')
+ * 
+ * 배열을 XML형식으로 변환
+ * arrayToXml($array)
+ * 
+ * XML형식을 배열로 변환
+ * xmlToArray($xml_string)
+ * 
+ * XML->배열로 변환했을때 비어있는 Key null처리
+ * recursiveNullArrayToNull($array)
 **/
 class st11
 {

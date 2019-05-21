@@ -1,39 +1,39 @@
 <?php
 /**
-기준일 설정(필수요소)
-
-목표일을 입력하면 기준일과의 영업일 차이를 반환
-public getWorkDayDiff($targetDate)
-
-기준일로부터 $diff 이후의 영업일 계산 (배송일/정산일등 계산)
-public getWorkDate($diff)  #목표일 계산
-
-기준일로부터 $diff 이전의 영업일 계산 ($diff 이전 시점부터 어제까지 구매결정된 건 계산)
-public getPrevWorkDate($diff)
-
-2023년까지의 공휴일 반환
-static getHolidayData()
-
-공휴일 데이터 strtotime형식의 리스트로 변환
-static getHolidayTimeList()
-
-공휴일인지 확인
-static isHoliday($time)
-
-주말인지 확인
-static isWeekend($time)
-
-영업일인지 확인
-static isWorkday($time)
-
-주문경로에 따른 배송처리 정보를 넣으면 정산예정일 관련 데이터를 반환합니다.
-static getOrderScheduleMessage($param)
-
-배송시작일 : 발송처리일
-배송완료일 : 제휴사로부터 가져온 배송완료일
-구매결정일 : 배송완료일로부터 제휴사에따른 자동구매확정 예상일 | 구매자 구매확정
-정산요청일 : 배송시작일로부터 영업일기준 5일이 경과 & 구매확정
-정산송금일 : 정산요청일로부터 영업일기준 익일
+ * 기준일 설정(필수요소)
+ * 
+ * 목표일을 입력하면 기준일과의 영업일 차이를 반환
+ * public getWorkDayDiff($targetDate)
+ * 
+ * 기준일로부터 $diff 이후의 영업일 계산 (배송일/정산일등 계산)
+ * public getWorkDate($diff)  #목표일 계산
+ * 
+ * 기준일로부터 $diff 이전의 영업일 계산 ($diff 이전 시점부터 어제까지 구매결정된 건 계산)
+ * public getPrevWorkDate($diff)
+ * 
+ * 2023년까지의 공휴일 반환
+ * static getHolidayData()
+ * 
+ * 공휴일 데이터 strtotime형식의 리스트로 변환
+ * static getHolidayTimeList()
+ * 
+ * 공휴일인지 확인
+ * static isHoliday($time)
+ *
+ * 주말인지 확인
+ * static isWeekend($time)
+ *
+ * 영업일인지 확인
+ * static isWorkday($time)
+ *
+ * 주문경로에 따른 배송처리 정보를 넣으면 정산예정일 관련 데이터를 반환합니다.
+ * static getOrderScheduleMessage($param)
+ *
+ * 배송시작일 : 발송처리일
+ * 배송완료일 : 제휴사로부터 가져온 배송완료일
+ * 구매결정일 : 배송완료일로부터 제휴사에따른 자동구매확정 예상일 | 구매자 구매확정
+ * 정산요청일 : 배송시작일로부터 영업일기준 5일이 경과 & 구매확정
+ * 정산송금일 : 정산요청일로부터 영업일기준 익일
 **/
 class DateManager
 {

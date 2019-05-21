@@ -35,21 +35,21 @@ class GetProductsByCrawling():
 
     def getData(self, page):
         page = page * self.limit
-        sql = "SELECT number FROM auction_product WHERE product_stats = 0 ORDER BY number ASC LIMIT "+str(page)+", "+str(self.limit)
+        sql = "SELECT number FROM 상품테이블 WHERE product_stats = 0 ORDER BY number ASC LIMIT "+str(page)+", "+str(self.limit)
         data = DB_sbridge.queryToArray(sql)
         print('삽입데이터 : '+sql)
         return data
 
     def getCount(self):
-        sql = "SELECT count(*) AS count FROM auction_product WHERE product_stats = 0"
+        sql = "SELECT count(*) AS count FROM 상품테이블 WHERE product_stats = 0"
         count = DB_sbridge.queryToObject(sql)
         return count['count']
 
     def loginAndGoPage(self):
         flow_list = []
         flow_list.append({'goto_page':'https://login.soffice.11st.co.kr/login/Login.page?returnURL=http%3A%2F%2Fsoffice.11st.co.kr%2FIndex.tmall'}) # 11번가 로그인
-        flow_list.append({'send_key':{'pricegolf':'//*[@id="loginName"]'}}) # 아이디 입력
-        flow_list.append({'send_key':{'miki10599`':'//*[@id="passWord"]'}}) # 비밀번호 입력
+        flow_list.append({'send_key':{'판매자아이디':'//*[@id="loginName"]'}}) # 아이디 입력
+        flow_list.append({'send_key':{'판매자비밀번호`':'//*[@id="passWord"]'}}) # 비밀번호 입력
         flow_list.append({'click':'//*[@id="layBody"]/div/div/form/div[2]/div/div/fieldset/div/div/input'}) # 로그인버튼 클릭
         flow_list.append({'goto_page':'http://soffice.11st.co.kr/product/SellProductAction.tmall?method=getSellProductList'}) # 상품조회 페이지
         self.selenium = ControlBrowser()

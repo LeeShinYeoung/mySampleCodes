@@ -1,6 +1,6 @@
 <?php
 /**
- * 기준일 설정(필수요소)
+ * 기준일 설정(미설정시 현재날짜)
  * 
  * 목표일을 입력하면 기준일과의 영업일 차이를 반환
  * public getWorkDayDiff($targetDate)
@@ -14,7 +14,7 @@
  * 2023년까지의 공휴일 반환
  * static getHolidayData()
  * 
- * 공휴일 데이터 strtotime형식의 리스트로 변환
+ * 공휴일 데이터 Timestamp형식의 리스트로 변환
  * static getHolidayTimeList()
  * 
  * 공휴일인지 확인

@@ -1,6 +1,7 @@
 <?
 include_once("{$_SERVER['DOCUMENT_ROOT']}/coop/11st/class.st11.php");
 /**
+ * 
  * 등록된 주소지조회
  * static getRegisterdAddress($type)
  *
@@ -8,7 +9,7 @@ include_once("{$_SERVER['DOCUMENT_ROOT']}/coop/11st/class.st11.php");
  * static makeRequestAddress($data)
  *
  * 도로명, 지번주소 검색
- * static searchAddress($serach_kwd)
+ * static searchAddress($search_kwd)
  *
  * 도로명주소 검색
  * static searchAddressByRoadName($road_addr)
@@ -23,7 +24,7 @@ include_once("{$_SERVER['DOCUMENT_ROOT']}/coop/11st/class.st11.php");
  * static syncSellerAddressManual($user_data,$address_type)
  *
  * 동기화 후처리 (로그, 업데이트)
- * static updateCoopSellerAddress($data,$mode)
+ * static updateCoopSellerAddress($response,$mode)
  *
  * 크론탭 전용
  * public crontab_needSync()

@@ -1,16 +1,16 @@
 <?php 
 /**
-public showDayContent() 
-오늘의 콘텐츠를 가져온다 만약 오늘의 콘텐츠가 없다면 새로 만듬
-
-public saveContent($txt)
-저장된 날짜에 콘텐츠 추가 및 수정
-
-static fileCtrl($path,$mode,$args=null)
-파일 읽기, 쓰기
-
-static makeDir($date)
-가져온 날짜에 파일 및 디렉토리 생성
+ * public showDayContent() 
+ * 오늘의 콘텐츠를 가져온다 만약 오늘의 콘텐츠가 없다면 새로 만듬
+ * 
+ * public saveContent($txt)
+ * 저장된 날짜에 콘텐츠 추가 및 수정
+ * 
+ * static fileCtrl($path,$mode,$args=null)
+ * 파일 읽기, 쓰기
+ * 
+ * static makeDir($date)
+ * 가져온 날짜에 파일 및 디렉토리 생성
 **/
 class TextFile
 {

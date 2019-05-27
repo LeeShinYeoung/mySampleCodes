@@ -2,7 +2,7 @@
 
 ## KeyLog.js
 
-부모로 지정한 태그 내에서 눌리는 모든 키보드, 마우스 클릭값을 변수에 누적시키며, input, textarea같은 경우 따로 구분가능
+부모로 지정한 태그 내에서 눌리는 모든 키보드, 마우스 클릭값을 변수에 누적시키는 기능. input, textarea같은 경우 따로 구분가능합니다.
 
 ### 실행 EX)
 
@@ -21,7 +21,7 @@ window.onload = function() {
 </form>
 ```
 
-input name이 product_name인 태그안에서 결과적으로 test라고 입력시 log 변수에 담기는 데이터
+input태그 name이 "product_name"인 태그안에서 결과적으로 test라고 입력시 log 변수에 담기는 데이터
 
 ```javascript
 {type: "onload", value: null, time: 0}
@@ -40,7 +40,7 @@ input name이 product_name인 태그안에서 결과적으로 test라고 입력�
 
 ## KeyLogAnlz.js
 
-KeyLog.js 에서 쌓은 데이터를 보기 편하게 텍스트로 바꿔주는 기능
+KeyLog.js 에서 쌓은 데이터를 보기 편리하도록 텍스트로 바꿔주는 기능
 
 ### Param
 
@@ -56,7 +56,7 @@ KeyLog.js 에서 쌓은 데이터를 보기 편하게 텍스트로 바꿔주는 
 
 ```javascript 
 var Anlz = new KeyLogAnlz({
-    data : [위에서 생성된 JSON 데이터]
+    data : [위에서 생성된 데이터]
 });
 var result = Anlz.getText();
 console.log(result);

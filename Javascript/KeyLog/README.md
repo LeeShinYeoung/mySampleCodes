@@ -69,7 +69,7 @@ console.log를 확인해보면 다음과 같이 보여집니다
 product_name 3.525 {
     << BEFORE :
     << AFTER : test
-    tea[<]
+    tea[<]st
 }
 ```
 

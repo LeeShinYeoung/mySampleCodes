@@ -23,7 +23,7 @@ window.onload = function() {
 
 input name이 product_name인 태그안에서 결과적으로 test라고 입력시 log 변수에 담기는 데이터
 
-```json
+```javascript
 {type: "onload", value: null, time: 0}
 , {type: "click", value: "product_name", time: 2.118}
 , {type: "focusIn", value: "product_name", time: 2.145, focus_data: "", tag: "INPUT"}
@@ -62,7 +62,7 @@ var result = Anlz.getText();
 console.log(result);
 ```
 
-console.log를 확인해보면 다음과 같이 보여짐
+console.log를 확인해보면 다음과 같이 보여집니다
 
 
 ```javascript

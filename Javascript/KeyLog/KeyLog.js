@@ -1,34 +1,15 @@
 /**
- * KeyLog실행시 해당 페이지에서 눌리는 모든 키보드값을 keyLog라는 변수에 저장한다
- * 임의로 지정한 리스트 혹은 input태그는 keyLog변수안에 별도로 영역을 생성하여 저장한다
+ * 부모로 지정한 태그 내에서 눌리는 모든 키보드, 마우스 클릭값을 변수에 누적시키며, input, textarea같은 경우 따로 구분가능
  *
- *     window.onload = function() {
-            var list = [
-                'brand_name',
-                'product_name',
-                'product_sangtae',
-                'jaego',
-            ]
-            new KeyLog({
-                list : list,
-                parent : '.product_add'
-            });
-        }
- *
- *
- * data = {}
- * 태그의 name 배열
- * data.list = array();
- * ex) <input type='text' name='id'>... => data.list = ['id',...]
+   new KeyLog({parent : '.product_add'});
  *
  * 부모태그
- * data.parent = .class, #id
- * ex) <form class='reg'> => data.parent = '.reg'
+ * param.parent = .class, #id
+ * ex) <form class='reg'> => '.reg'
  */
 var KeyLog = function(data)
 {
     this.parent = (data.parent) ? document.querySelector(data.parent) : document.body;
-    //this.submit = (data.submit) ? document.querySelector(data.submit) : null;
     var collection_input = this.parent.getElementsByTagName('input');
     var collection_textarea = this.parent.getElementsByTagName('textarea');
     this.list = [];

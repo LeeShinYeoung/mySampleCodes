@@ -4,22 +4,27 @@
 
 아래와 같이 간편하게 웹을 컨트롤 할수 있습니다.
 
+### 실행
 ```python
+# 인스턴스 생성
 inst = ControlWebsite()
-
-# base_controller()를 사용할경우
+```
+#### base_controller()를 사용할 경우
+```python
 inst.base_controller('goto_page', 'https://test.com/loginPage')
 inst.base_controller('send_key', {'아이디': '//*[@id="id"]'})
 inst.base_controller('send_key', {'비밀번호`': '//*[@id="password"]'})
 inst.base_controller('click', '//*[@id="wrapper"]/div/form/div[2]/input')
-
-# exec_row()를 사용할경우
+```
+#### exec_row()를 사용할 경우
+```python
 inst.exec_row({'goto_page': 'https://test.com/loginPage'})
 inst.exec_row({'send_key': {'아이디': '//*[@id="id"]'}})
 inst.exec_row({'send_key': {'비밀번호`': '//*[@id="password"]'}})
 inst.exec_row({'click': '//*[@id="wrapper"]/div/form/div[2]/input'})
-
-# exec_flow_list를 사용할경우
+```
+#### exec_flow_list()를 사용할 경우
+```python
 flow = [
     {'goto_page': 'https://test.com/loginPage'}
     , {'send_key': {'아이디': '//*[@id="id"]'}}
@@ -29,7 +34,7 @@ flow = [
 inst.exec_flow_list(flow)
 ```
 
-### PARAM
+#### Parameter
 | event_type   | param                                 | explain              |
 | ------------ | ------------------------------------- | -------------------- |
 | goto_page    | string : Url                          | 페이지 접속          |

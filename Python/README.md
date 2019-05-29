@@ -1,6 +1,6 @@
 # Python sample codes
 ## ControlWebsite.py
-자동화작업을 위해 개발한 웹컨트롤 클래스 (selenium을 사용)
+자동화작업을 위해 개발한 웹컨트롤 클래스(selenium을 사용)
 
 아래와 같이 간편하게 웹을 컨트롤 할수 있습니다.
 

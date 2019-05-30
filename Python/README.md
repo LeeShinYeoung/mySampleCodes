@@ -1,6 +1,6 @@
 # Python sample codes
 ## ControlWebsite.py
-자동화 작업을 위해 개발한 웹컨트롤 클래스 (selenium을 사용)
+업무 자동화를 위해 개발한 웹컨트롤 클래스 (selenium을 사용)
 
 아래와 같이 간편하게 웹을 컨트롤 할수 있습니다.
 
@@ -52,7 +52,7 @@ inst.exec_flow_list(flow)
 
 ## ControlExcel.py
 
-자동화 작업을 위해 간편하게 엑셀파일 데이터를 반환, 저장하고자 개발한 엑셀 컨트롤 클래스입니다 (.xls, .xlsx 가능)
+업무 자동화를 위해 간편하게 엑셀파일 데이터를 반환, 저장하고자 개발한 엑셀 컨트롤 클래스입니다 (.xls, .xlsx 가능)
 
 ### 실행
 ```python
@@ -87,12 +87,12 @@ data = [
         , ['a4', 'b4', 'c4']]
 inst.exec_append_matrix(data)
 
-# 인스턴스 생성시 지정한 경로에 paths에 있는 데이터 일괄 삽입
+# 인스턴스 생성시 지정한 경로에다 리스트(paths)에 있는 데이터 일괄 삽입
 paths = [
-         ['C:/Users/hbmun/Desktop/Test_ControlExcel/test_file_1.xls'
-         , ['C:/Users/hbmun/Desktop/Test_ControlExcel/test_file_2.xls']
-         , ['C:/Users/hbmun/Desktop/Test_ControlExcel/test_file_3.xls']
-         , ['C:/Users/hbmun/Desktop/Test_ControlExcel/test_file_4.xls']]
+         'C:/Users/hbmun/Desktop/Test_ControlExcel/test_file_1.xls'
+         , 'C:/Users/hbmun/Desktop/Test_ControlExcel/test_file_2.xls'
+         , 'C:/Users/hbmun/Desktop/Test_ControlExcel/test_file_3.xls'
+         , 'C:/Users/hbmun/Desktop/Test_ControlExcel/test_file_4.xls']
 inst.exec_append_paths(paths)
 
 # 파일생성 (path가 없다면 인스턴스 생성시 지정한 경로에 파일 생성)

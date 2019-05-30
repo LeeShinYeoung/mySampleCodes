@@ -20,5 +20,6 @@
 
 ## Python
 
+- ControlExcel.py
 - ControlWebsite.py
 - Get11stAllProducts.py

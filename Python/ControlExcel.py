@@ -89,7 +89,7 @@ class ControlExcel:
             filtered_matrix = self.get_filtred_column(matrix)
         result = filtered_matrix if filtered_matrix else matrix
         self.show_process(result)
-        return matrix
+        return result
 
     # 행렬 삽입
     def exec_append_matrix(self, matrix):

@@ -14,7 +14,6 @@
 - class.Inicis.php
 - class.TextFile.php
 - class.st11.address.php
-- class.st11.php
 
 
 

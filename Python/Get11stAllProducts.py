@@ -1,6 +1,6 @@
 import math
-from Crawling.ControlWebsite import ControlWebsite
-from Crawling.ControlExcel import ControlExcel
+from Tool.ControlWebsite import ControlWebsite
+from Tool.ControlExcel import ControlExcel
 from Database.sbridge import DB_sbridge
 from Database.localhost import DB_local
 
@@ -14,7 +14,7 @@ from Database.localhost import DB_local
 # 3) 모두 합쳐진 엑셀파일에 있는 데이터를 로컬 데이터베이스에 입력한다
 # exec_insert_database(save_path)
 
-class GetProductsByCrawling:
+class Get11stAllProducts:
     def __init__(self):
         self.limit = 1000
         self.web_controller = None
@@ -109,7 +109,7 @@ class GetProductsByCrawling:
 
 if __name__ == '__main__':
     # 인스턴스 생성
-    instance = GetProductsByCrawling()
+    instance = Get11stAllProducts()
 
     # 11번가 판매자 페이지에 접속해서 판매중인 상품을 엑셀파일로 모두 다운받는다
     # instance.exec_download_products()

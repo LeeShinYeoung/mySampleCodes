@@ -107,3 +107,16 @@ file_name = 'Data'
 file_format = '.xls'
 Control.get_same_file_paths(dir_path, file_name, file_format)
 ```
+
+## GetSt11AllProducts.py
+위 기능들을 사용하여 11번가에 있는 모든 판매중인 상품을 가져올수있는 Class입니다
+```python
+# 1) 11번가 판매자 페이지에 접속해서 판매중인 상품을 엑셀파일로 모두 다운받는다
+# exec_download_products()
+
+# 2) 다운받은 엑셀 파일들을 모두 합친다
+# exec_combine_all_excel(path_info)
+
+# 3) 모두 합쳐진 엑셀파일에 있는 데이터를 로컬 데이터베이스에 입력한다
+# exec_insert_database(save_path)
+```

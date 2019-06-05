@@ -95,7 +95,7 @@ class Get11stAllProducts:
         ])
         excel_data = excel_ctrl.exec_get_matrix()
         for i, row in enumerate(excel_data):
-            DB_local.insertArray('_11st_products', excel_data)
+            DB_local.insertArray('_11st_products', row)
             if i % 50 is 0:
                 print('insert {}'.format(str(i)))
 
